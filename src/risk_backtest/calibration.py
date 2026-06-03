@@ -117,9 +117,9 @@ def calculate_bias_q_batch(
     daily_results: pd.DataFrame,
     *,
     return_columns: dict[str, str] | None = None,
-    var_column: str = "VAR",
-    fund_column: str = "FUNDCODE",
-    date_column: str = "VALUATIONDATE",
+    var_column: str = "var",
+    fund_column: str = "fund_id",
+    date_column: str = "date",
     window_length: int = 60,
     min_periods_ratio: float = 0.85,
     confidence_level: float = 0.99,
@@ -137,12 +137,12 @@ def calculate_bias_q_batch(
         DataFrame with fund-level daily data.
     return_columns : dict, optional
         Mapping of label → column name for return columns.
-        Default: ``{"DIRTY": "RETURN_DIRTY", "CLEAN": "RETURN_CLEAN"}``.
-    var_column : str, default "VAR"
+        Default: ``{"RETURN": "return"}``.
+    var_column : str, default "var"
         Column name for VaR forecasts.
-    fund_column : str, default "FUNDCODE"
+    fund_column : str, default "fund_id"
         Column name for fund identifier.
-    date_column : str, default "VALUATIONDATE"
+    date_column : str, default "date"
         Column name for date.
     window_length : int, default 60
         Rolling window length in trading days.
@@ -171,7 +171,7 @@ def calculate_bias_q_batch(
     ... )
     """
     if return_columns is None:
-        return_columns = {"DIRTY": "RETURN_DIRTY", "CLEAN": "RETURN_CLEAN"}
+        return_columns = {"RETURN": "return"}
 
     df = daily_results.copy()
     fund_list = df[fund_column].unique()

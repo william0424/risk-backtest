@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "risk-backtest"
-version = "0.1.0"
+version = "1.0.1"
 description = "A data-agnostic backtesting toolbox for VaR and other risk measures"
 readme = "README.md"
 license = "MIT"

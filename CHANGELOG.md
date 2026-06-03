@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.0.1] - 2026-06-03
 
 ### Added
 - **Expected Shortfall** module (`expected_shortfall.py`):
@@ -17,6 +17,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Optional `plotting` extra (`pip install risk-backtest[plotting]`).
 - `dev` extra now bundles `build` and `twine` for releases.
 - Additional project URLs (Repository, Changelog) in package metadata.
+- Comprehensive README covering every public function.
+- GitHub Actions: `tests.yml` (matrix CI) and `publish.yml` (PyPI trusted publisher).
+
+### Changed
+- `calculate_bias_q_batch` defaults are now generic (`fund_id`, `date`, `var`,
+  `{"RETURN": "return"}`) instead of domain-specific column names.
+- LICENSE copyright holder updated to the package author.
 
 ### Fixed
 - `cluster_threshold_sensitivity` reported `Avg_Breaches = 0` because it looked

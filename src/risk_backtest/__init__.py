@@ -49,7 +49,7 @@ from .var_models import (
     recursive_garch_variance,
 )
 
-__version__ = "0.1.0"
+__version__ = "1.0.1"
 
 __all__ = [
     # High-level API
